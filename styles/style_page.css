@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background-color: #FFCDE8;
+    color: #333;
+    overflow-x: hidden;
+}
+
+.section {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 2rem;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.section.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content {
+    max-width: 800px;
+    text-align: center;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    color: #0072ff;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #0072ff;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+
+
+/* Barre de navigation */
+.side-nav {
+    position: fixed;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 100;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.dot-nav {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background-color: #0072ff(232, 90, 79, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.dot-nav::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #0072ff;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.dot-nav.active {
+    background-color: #0072ff(232, 90, 79, 0.8);
+}
+
+.dot-nav.active::after {
+    background-color: white;
+    width: 8px;
+    height: 8px;
+}
+
+.dot-label {
+    position: absolute;
+    left: 30px;
+    white-space: nowrap;
+    color: #0072ff;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    transform: translateY(-50%);
+    top: 50%;
+    font-size: 0.8rem;
+}
+
+.dot-nav:hover .dot-label,
+.dot-nav.active .dot-label {
+    opacity: 1;
+}
+
+/* Nuages */
+
+.nuage-anime {
+    position: absolute;
+    z-index: 0;
+    top: 20%; 
+    left: 10%;
+    width: 300px;
+}
+
+
+/* Bouton retour page d'accueil : */
+
+.back-button {
+    display: inline-block;
+    margin: 20px;
+    padding: 10px 15px;
+    background-color: #0072ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+}
+.back-button:hover {
+    background-color: #005bb5;
+}
+
+/* Lien beau vers les projets : */
+
+.project-button {
+    display: block;
+    background-color: #0072ff;
+    color: white;
+    text-decoration: none;
+    padding: 15px 20px;
+    margin: 10px 0;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.project-button:hover {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+/* responsive : */
+
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    h2 {
+        font-size: 2rem;
+    }
+    .nav-links {
+        display: none;
+    }
+}
