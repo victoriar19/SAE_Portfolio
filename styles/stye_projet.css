@@ -130,6 +130,26 @@ li:last-child {
   margin-left: 0.5rem;
 }
 
+.rouge {
+  color: #cc1f1f;
+  font-weight: 600;
+  background: #fcdcdc;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.orange {
+  color: #cc641f;
+  font-weight: 600;
+  background: #ffc9a5;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
 /* Bouton retour */
 .back-button {
   display: inline-flex;
