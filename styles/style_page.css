@@ -11,6 +11,31 @@ body {
     overflow-x: hidden;
 }
 
+/* Nuages animés */
+.nuage, .nuage2 {
+    position: absolute;
+    width: 15%;
+    opacity: 0.6;
+    animation: float 5s ease-in-out infinite;
+}
+
+.nuage {
+    top: 10%;
+    left: 0;
+}
+
+.nuage2 {
+    bottom: 0;
+    right: 0;
+    transform: rotate(180deg);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+/* Section principale */
 .section {
     height: 100vh;
     width: 100%;
@@ -35,6 +60,7 @@ body {
     z-index: 2;
 }
 
+/* Titres */
 h1 {
     font-size: 3.5rem;
     margin-bottom: 1.5rem;
@@ -53,9 +79,7 @@ p {
     margin-bottom: 1.5rem;
 }
 
-
-
-/* Barre de navigation */
+/* Barre de navigation latérale */
 .side-nav {
     position: fixed;
     left: 40px;
@@ -71,7 +95,7 @@ p {
     width: 14px;
     height: 14px;
     border-radius: 50%;
-    background-color: #0072ff(232, 90, 79, 0.3);
+    background-color: rgba(0, 114, 255, 0.3);
     cursor: pointer;
     transition: all 0.3s ease;
     position: relative;
@@ -92,7 +116,7 @@ p {
 }
 
 .dot-nav.active {
-    background-color: #0072ff(232, 90, 79, 0.8);
+    background-color: rgba(0, 114, 255, 0.8);
 }
 
 .dot-nav.active::after {
@@ -119,19 +143,16 @@ p {
     opacity: 1;
 }
 
-/* Nuages */
-
+/* Nuage décoratif */
 .nuage-anime {
     position: absolute;
     z-index: 0;
-    top: 20%; 
+    top: 20%;
     left: 10%;
     width: 300px;
 }
 
-
-/* Bouton retour page d'accueil : */
-
+/* Bouton de retour */
 .back-button {
     display: inline-block;
     margin: 20px;
@@ -141,13 +162,19 @@ p {
     text-decoration: none;
     border-radius: 8px;
     font-weight: bold;
+    transition: background-color 0.3s ease;
 }
+
 .back-button:hover {
     background-color: #005bb5;
 }
 
-/* Lien beau vers les projets : */
+/* Image projet */
+.imgP8 {
+    width: 103%;
+}
 
+/* Bouton vers les projets */
 .project-button {
     display: block;
     background-color: #0072ff;
@@ -160,7 +187,7 @@ p {
     font-weight: bold;
     transition: background-color 0.3s ease, transform 0.2s ease;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .project-button:hover {
@@ -168,16 +195,34 @@ p {
     transform: translateY(-2px);
 }
 
-/* responsive : */
-
+/* Responsive */
 @media (max-width: 768px) {
     h1 {
         font-size: 2.5rem;
     }
+
     h2 {
         font-size: 2rem;
     }
+
     .nav-links {
         display: none;
+    }
+
+    .side-nav {
+        left: 15px;
+    }
+
+    .nuage, .nuage2 {
+        width: 25%;
+    }
+
+    .content {
+        padding: 0 1rem;
+    }
+
+    .project-button {
+        font-size: 1rem;
+        padding: 12px 18px;
     }
 }

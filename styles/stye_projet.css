@@ -1,5 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
+html {
+  font-size: 100%;
+  scroll-behavior: smooth;
+}
+
+@media (max-width: 768px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 85%;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -66,12 +83,7 @@ p:first-of-type {
   margin-bottom: 1rem;
 }
 
-/* Titres des sections - même style que "Présentation :" */
-p:first-of-type,
-p:nth-of-type(3),
-p:nth-of-type(5),
-p:nth-of-type(7),
-p:nth-of-type(9) {
+.titre {
   font-weight: 600;
   color: #333;
   font-size: 1.1rem;
@@ -79,13 +91,14 @@ p:nth-of-type(9) {
   margin-top: 2rem;
 }
 
-/* Liste des compétences */
 ul {
   background: #f7fafc;
   border-radius: 16px;
   padding: 2rem;
   margin-bottom: 2rem;
   border-left: 4px solid #0072ff;
+  overflow-x: auto;
+  max-width: 100%;
 }
 
 li {
@@ -150,7 +163,6 @@ li:last-child {
   margin-left: 0.5rem;
 }
 
-/* Bouton retour */
 .back-button {
   display: inline-flex;
   align-items: center;
@@ -173,6 +185,12 @@ li:last-child {
   box-shadow: 0 6px 20px rgba(0, 114, 255, 0.4);
 }
 
+.back-button:focus {
+  outline: 2px solid #0072ff;
+  outline-offset: 2px;
+}
+
+
 /* Nuages animés */
 .nuage {
   position: absolute;
@@ -183,15 +201,16 @@ li:last-child {
 }
 
 .nuage.left {
-  top: 10%;
-  left: -5%;
+  top: 0%;
+  left: 5%;
   animation-delay: -2s;
 }
 
 .nuage.right {
   bottom: 10%;
-  right: -5%;
+  left: 80%;
   animation-delay: -4s;
+  
 }
 
 @keyframes float {
@@ -209,7 +228,6 @@ li:last-child {
   }
 }
 
-/* Liens vers les preuves */
 a[href$=".pdf"] {
   display: inline-block;
   margin: 1rem 0;
@@ -231,49 +249,87 @@ a[href$=".pdf"] img {
   display: block;
 }
 
-/* Amélioration de la lisibilité sur mobile */
-@media (max-width: 768px) {
-  body {
-    padding: 1rem;
-  }
-  
-  .container {
-    padding: 2rem;
-    border-radius: 16px;
-  }
-  
-  h1 {
-    font-size: 2rem;
-  }
-  
-  p {
-    font-size: 1rem;
-    text-align: left;
-  }
-  
-  li {
-    padding: 0.875rem;
-    padding-left: 2.5rem;
-  }
-  
-  .nuage {
-    width: 120px;
-  }
-}
-
-/* Scroll fluide */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Amélioration de la sélection de texte */
 ::selection {
   background-color: rgba(0, 114, 255, 0.2);
   color: #0072ff;
 }
 
-/* Focus visible pour l'accessibilité */
-.back-button:focus {
-  outline: 2px solid #0072ff;
-  outline-offset: 2px;
+/* Responsive tablette */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    padding: 2rem;
+    border-radius: 16px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  li {
+    padding: 0.875rem;
+    padding-left: 2.5rem;
+  }
+
+  .nuage {
+    width: 120px;
+  }
+}
+
+/* Responsive mobile étroit */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.6rem;
+  }
+
+  .container {
+    padding: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  li {
+    font-size: 0.95rem;
+    padding: 0.75rem;
+    padding-left: 2.2rem;
+  }
+
+  .back-button {
+    font-size: 0.85rem;
+    padding: 0.75rem 1.2rem;
+  }
+
+  .nuage {
+    width: 100px;
+  }
+}
+
+/* Responsive grand écran */
+@media (min-width: 1200px) {
+  .container {
+    padding: 4rem;
+    max-width: 1000px;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+
+  li {
+    font-size: 1.05rem;
+  }
 }
